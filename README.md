@@ -48,6 +48,30 @@ python --version
 ### Building the Network
 1. Install Samples, Binaries and Docker Images
 ```
-cd RollsRoyce
+cd RollsRoyce/src
 curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.3 1.4.3 0.4.15
+```
+
+2. Install npm
+```
+cd javascript
+npm install
+```
+
+3. Bringing Up the Network
+```
+cd .. && cd fabcar
+./startFabric.sh golang
+```
+
+4. Running the Execution Commands
+```
+node enrollAdmin.js
+node registerUser.js
+
+# Querying the Ledger
+node query.js
+
+# Updating Ledger State
+node invoke.js
 ```
