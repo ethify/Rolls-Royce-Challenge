@@ -27,8 +27,8 @@ docker --version
 docker-compose --version
 ```
 3. Go(1.11.x)
+- Download the [archive](https://golang.org/dl).
 ```
-Download the [archive](https://golang.org/dl).
 cd Archive_Download_location
 sudo tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
