@@ -28,10 +28,12 @@ docker-compose --version
 ```
 3. Go(1.11.x)
 ```
-sudo snap install go --classic
+Download the [archive](https://golang.org/dl).
+cd Archive_Download_location
+sudo tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+source $HOME/.profile
 go version
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 ```
 4. Nodejs(>10.x)
 ```
