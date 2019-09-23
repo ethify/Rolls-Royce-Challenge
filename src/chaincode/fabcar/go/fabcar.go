@@ -108,26 +108,38 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 		return s.CreateWorkRequest(APIstub,args)
 	}else if function == "queryRequests" {
 		return s.queryRequests(APIstub,args)
+	} else if function == "CreateWorkInstructions"{
+		return s.CreateWorkInstructions(APIstub, args)
+	} else if function == "queryWorkInstruction" {
+		return s.queryWorkInstruction(APIstub, args)
+	}else if function == "queryRequestcount" {
+		return s.queryRequestcount(APIstub, args)
+	}else if function == "queryWorkCount" {
+		return s.queryWorkCount(APIstub, args)
+	}else if function == "assign" {
+		return s.assign(APIstub, args)
+	}else if function == "showSelected" {
+		return s.showSelected(APIstub, args)
 	}
+
 
 	return shim.Error("Invalid Smart Contract function name.")
 }
 func (s *SmartContract) CreateWorkRequest(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 1{
-		return shim.Error("Incorrect number of arguments. Expecting 2")//First argument will be entryId and second will be JSON having entryID again
+		return shim.Error("Incorrect number of arguments. Expecting 1")//First argument will be entryId and second will be JSON having entryID again
 	}
+	count, _ := APIstub.GetState("RequestCount")
 	byteToInt, _ := strconv.Atoi(string(count))
-	//var car = Car{Make: args[1], Model: args[2], Colour: args[3], Owner: args[4]}
-	count := APIstub.GetState("RequestCount")
-	if len(count)>0 {
+	if byteToInt>0 {
 		byteToInt = byteToInt +1
-		APIstub.PutState("RequestCount", []byte(byteToInt))
+		APIstub.PutState("RequestCount", []byte(strconv.Itoa(byteToInt)))
+	}else{
+		APIstub.PutState("RequestCount", []byte(strconv.Itoa(1)))
+		byteToInt = 1
 	}
-	else{
-		APIstub.PutState("RequestCount", []byte( byteToInt))
-	}
-	APIstub.PutState("req"+strconv.Itoa(byteToInt), []byte( args[1]))
+	APIstub.PutState("req"+strconv.Itoa(byteToInt), []byte( args[0]))
 	return shim.Success(nil)
 }
 
@@ -145,23 +157,22 @@ func (s *SmartContract) queryRequests(APIstub shim.ChaincodeStubInterface, args 
 func (s *SmartContract) CreateWorkInstructions(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 1{
-		return shim.Error("Incorrect number of arguments. Expecting 2")//First argument will be entryId and second will be JSON having entryID again
+		return shim.Error("Incorrect number of arguments. Expecting 1")//First argument will be entryId and second will be JSON having entryID again
 	}
+	count, _ := APIstub.GetState("workCount")
 	byteToInt, _ := strconv.Atoi(string(count))
-	//var car = Car{Make: args[1], Model: args[2], Colour: args[3], Owner: args[4]}
-	count := APIstub.GetState("workCount")
-	if len(count)>0 {
+	if byteToInt>0 {
 		byteToInt = byteToInt +1
-		APIstub.PutState("workCount", []byte(byteToInt))
+		APIstub.PutState("workCount", []byte(strconv.Itoa(byteToInt)))
+	}else{
+		APIstub.PutState("workCount", []byte(strconv.Itoa(1)))
+		byteToInt= 1
 	}
-	else{
-		APIstub.PutState("workCount", []byte( byteToInt))
-	}
-	APIstub.PutState("work"+strconv.Itoa(byteToInt), []byte( args[1]))
+	APIstub.PutState("work"+strconv.Itoa(byteToInt), []byte( args[0]))
 	return shim.Success(nil)
 }
 
-func (s *SmartContract) queryWork(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *SmartContract) queryWorkInstruction(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
@@ -173,42 +184,33 @@ func (s *SmartContract) queryWork(APIstub shim.ChaincodeStubInterface, args []st
 }
 func (s *SmartContract) queryRequestcount(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
-	if len(args) != 1 {
-		return shim.Error("Incorrect number of arguments. Expecting 1")
-	}
 
-	R, _ := APIstub.GetState([]byte("RequestCount"))
+	R, _ := APIstub.GetState("RequestCount")
 	return shim.Success(R)
 	
 }
 func (s *SmartContract) queryWorkCount(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
-	if len(args) != 1 {
-		return shim.Error("Incorrect number of arguments. Expecting 1")
-	}
 
-	R, _ := APIstub.GetState([]byte("workCount"))
+	R, _ := APIstub.GetState("workCount")
 	return shim.Success(R)
 	
 }
 func (s *SmartContract) assign (APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
-	f len(args) != 1{
+	if len(args) != 2{
 		return shim.Error("Incorrect number of arguments. Expecting 2")//First argument will be request no and second will be rrsquestor
-	}
-	byteToInt, _ := strconv.Atoi(string(count))
-	//var car = Car{Make: args[1], Model: args[2], Colour: args[3], Owner: args[4]}
-	
-	APIstub.PutState("select"+strconv.Itoa(byteToInt), []byte( args[1]))
+	}	
+	APIstub.PutState("select"+args[0], []byte( args[1]))
 	return shim.Success(nil)
 	
 }
 func (s *SmartContract) showSelected (APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
-	f len(args) != 1{
+	if len(args) != 1{
 		return shim.Error("Incorrect number of arguments. Expecting 2")//First argument will be request no and second will be rqruestor
 	}
-	R, _ := APIstub.GetState([]byte(args[0]))
+	R, _ := APIstub.GetState(args[0])
 	return shim.Success(R)
 }
 func main() {
