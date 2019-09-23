@@ -19,7 +19,7 @@ async function main() {
 
         // Check to see if we've already enrolled the user.
         const userExists = await wallet.exists('user1');
-        if (!userExists) {
+        if (!userExists) {  
             console.log('An identity for the user "user1" does not exist in the wallet');
             console.log('Run the registerUser.js application before retrying');
             return;
@@ -34,11 +34,12 @@ async function main() {
 
         // Get the contract from the network.
         const contract = network.getContract('fabcar');
+        var obj = { name: "John", age: 30, city: "New York" }; 
 
         // Submit the specified transaction.
         // createCar transaction - requires 5 argument, ex: ('createCar', 'CAR12', 'Honda', 'Accord', 'Black', 'Tom')
         // changeCarOwner transaction - requires 2 args , ex: ('changeCarOwner', 'CAR10', 'Dave')
-        await contract.submitTransaction('createCar', 'CAR12', 'Honda', 'Accord', 'Black', 'Tom');
+        await contract.submitTransaction('CreateWorkRequest', JSON.stringify(obj));
         console.log('Transaction has been submitted');
 
         // Disconnect from the gateway.

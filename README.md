@@ -2,7 +2,10 @@
 
 Create a Consortium Blockchain for Supply Chain and Logistics Management.
 
-## Introduction - An introduction of Trellis Lab
+## Introduction - An Introduction of Trellis Labs
+
+Trellis Labs is a consortia to create broad collabration on blockchain projects with Industry actors.
+Our Team of experts works with you to develop blockchain solutions. From identifying the best use-case, assesing suitablity, developing proof of concepts, and bulding market ready solutions.
 
 ## Challenge of choice - Explain the challenge of choice
 
@@ -27,11 +30,13 @@ docker --version
 docker-compose --version
 ```
 3. Go(1.11.x)
+- Download the [archive](https://golang.org/dl).
 ```
-sudo snap install go --classic
+cd Archive_Download_location
+sudo tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+source $HOME/.profile
 go version
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 ```
 4. Nodejs(>10.x)
 ```
@@ -48,6 +53,30 @@ python --version
 ### Building the Network
 1. Install Samples, Binaries and Docker Images
 ```
-cd RollsRoyce
+cd RollsRoyce/src
 curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.3 1.4.3 0.4.15
+```
+
+2. Install npm
+```
+cd javascript
+npm install
+```
+
+3. Bringing Up the Network
+```
+cd .. && cd fabcar
+./startFabric.sh golang
+```
+
+4. Running the Execution Commands
+```
+node enrollAdmin.js
+node registerUser.js
+
+# Querying the Ledger
+node query.js
+
+# Updating Ledger State
+node invoke.js
 ```
