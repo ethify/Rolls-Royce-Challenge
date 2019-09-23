@@ -12,7 +12,7 @@ def group1():
 	user_data=request.form
 	chdir(jspath)
 	user_data = str( json.dumps(user_data))
-	system("node setRequest.js " + user_data.replace(" ",""))
+	system("node setRequest.js " + session['wallet'] + " " + user_data.replace(" ",""))
 	return json.dumps({'status':'OK'})
 
 @app.route('/group2', methods=['POST'])
@@ -20,7 +20,7 @@ def group2():
 	user_data=request.form
 	chdir(jspath)
 	user_data = str( json.dumps(user_data))
-	system("node setWork.js " + user_data.replace(" ",""))
+	system("node setWork.js " + session['wallet'] + " " + user_data.replace(" ",""))
 	return json.dumps({'status':'OK'})
 
 @app.route('/fbsignup', methods=['POST'])

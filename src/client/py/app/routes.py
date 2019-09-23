@@ -2,6 +2,7 @@ from flask import Flask, render_template, session, redirect, url_for, request
 from app import app
 from os import listdir, system, chdir
 from os.path import isfile, join, abspath, dirname
+import subprocess
 #from hfc.fabric import Client
 
 jspath = abspath(join(dirname( __file__ ), '..', '..','javascript'))
@@ -14,12 +15,38 @@ def members():
 	onlyfiles = [f for f in listdir(wallet_path) if not isfile(join(wallet_path, f))]
 	return dict(members=onlyfiles)
 
-@app.route('/')
 @app.route('/index')
 def index():
+	return "Index"
+
+@app.route('/wri-list')
+def wri_list():
 	if 'wallet' in session:
 		user=session['wallet']
-		return render_template('index.html',all_polls={}, prev_polls={})
+		wri_list = []
+		chdir(jspath)
+		count = subprocess.check_output(["node", "queryReqCount.js", session['wallet']])
+		count = int(count.decode())
+		for c in range(1, count+1):
+			a = subprocess.check_output(["node", "queryGetReq.js", session['wallet'], "req"+str(count)])
+			wri_list.append(a.decode())
+			print(wri_list)
+		return render_template('wri.html',all_polls=wri_list, prev_polls={})
+	return redirect(url_for('signin'))
+
+@app.route('/wi-list')
+def wi_list():
+	if 'wallet' in session:
+		user=session['wallet']
+		wri_list = []
+		chdir(jspath)
+		count = subprocess.check_output(["node", "queryWorkCount.js", session['wallet']])
+		count = int(count.decode())
+		for c in range(1, count+1):
+			a = subprocess.check_output(["node", "queryGetWork.js", session['wallet'], "work"+str(count)])
+			wri_list.append(a.decode())
+			print(wri_list)
+		return render_template('wi.html',all_polls=wri_list, prev_polls={})
 	return redirect(url_for('signin'))
 
 @app.route('/wri-create')
