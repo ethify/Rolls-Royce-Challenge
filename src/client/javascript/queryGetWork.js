@@ -18,7 +18,7 @@ async function main() {
         console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the user.
-        const userExists = await wallet.exists('user1');
+        const userExists = await wallet.exists(process.argv[2]);
         if (!userExists) {
             console.log('An identity for the user "user1" does not exist in the wallet');
             console.log('Run the registerUser.js application before retrying');
@@ -27,7 +27,7 @@ async function main() {
 
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccpPath, { wallet, identity: 'user1', discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(ccpPath, { wallet, identity: process.argv[2], discovery: { enabled: true, asLocalhost: true } });
 
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('mychannel');
@@ -39,7 +39,7 @@ async function main() {
         // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
         // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
         console.log(process.argv[2]);
-        const result = await contract.evaluateTransaction('queryWorkInstruction',process.argv[2]);//work1
+        const result = await contract.evaluateTransaction('queryWorkInstruction',process.argv[3]);//work1
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 
     } catch (error) {
