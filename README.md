@@ -17,7 +17,7 @@ This Solution is developed by keeping in mind the generic implementation and rep
 
 ## Tech - What makes your blockchain technology special? Elaborate on tools and approach used.
 
-* Hyperledger Fabric 
+* Hyperledger Fabric
   * Consortium Blockchain
   * Flexible Architecture
 
@@ -35,7 +35,7 @@ sudo apt-get update
 sudo apt-get install curl
 curl --version
 ```
-2. Docker(>17.x) and Docker-compose(>1.14.0) 
+2. Docker(>17.x) and Docker-compose(>1.14.0)
 ```
 sudo snap install docker
 docker --version
@@ -65,30 +65,25 @@ python --version
 ### Building the Network
 1. Install Samples, Binaries and Docker Images
 ```
-cd RollsRoyce/src
-curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.3 1.4.3 0.4.15
+cd RollsRoyce/src/scripts
+./bootstrap.sh
 ```
 
 2. Install npm
 ```
-cd javascript
+cd ../client/javascript
 npm install
 ```
 
 3. Bringing Up the Network
 ```
-cd .. && cd fabcar
-./startFabric.sh golang
+cd ..
+./startFabric.sh
 ```
 
-4. Running the Execution Commands
+4. Running the Frontend
 ```
-node enrollAdmin.js
-node registerUser.js
-
-# Querying the Ledger
-node query.js
-
-# Updating Ledger State
-node invoke.js
+cd py/
+pip3 install -r requirements.txt
+python3 app.py
 ```

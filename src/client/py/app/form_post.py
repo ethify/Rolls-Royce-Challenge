@@ -1,6 +1,5 @@
 from flask import Flask, render_template, session, url_for, escape, request, redirect
 from app import app
-from app.firebase_connect import *
 import json, random
 from os import listdir, system, chdir
 from os.path import isfile, join, abspath, dirname
