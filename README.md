@@ -9,9 +9,22 @@ Our Team of experts works with you to develop blockchain solutions. From identif
 
 ## Challenge of choice - Explain the challenge of choice
 
+The potential blockchain solution is proposed, To introduce Traceability and Transparency, To improve Integrity and Coherency, and by making it Seamless and Self-executing. For Prototype, we have focused our work on the first four steps of Maintenance Scenario, in the future, we will be focusing on the next 12 steps. This Planned protocol will be able to reduce the complete process time period by 33% with enabled blockchain security. The solution doesn't use any 3rd party involvement.
+This Solution is developed by keeping in mind the generic implementation and replaces the physical documents with a consortium blockchain ledger.
+
 ## Solution - Articulate the idea and your strategy in solving the problem.
 
+
 ## Tech - What makes your blockchain technology special? Elaborate on tools and approach used.
+
+* Hyperledger Fabric 
+  * Consortium Blockchain
+  * Flexible Architecture
+
+* IPFS
+* Golang(ChainCode)
+* Nodejs
+* Flask
 
 ## Beyond challenge - How can your solution be implemented into an existing business? Elaborate on compatibility.
 
