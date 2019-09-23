@@ -2,17 +2,25 @@ from flask import Flask, render_template, session, url_for, escape, request, red
 from app import app
 from app.firebase_connect import *
 import json, random
+from os import listdir, system, chdir
+from os.path import isfile, join, abspath, dirname
+
+jspath = abspath(join(dirname( __file__ ), '..', '..','javascript'))
 
 @app.route('/group1', methods=['POST'])
 def group1():
 	user_data=request.form
-	print(json.dumps(user_data))
+	chdir(jspath)
+	user_data = str( json.dumps(user_data))
+	system("node setRequest.js " + user_data.replace(" ",""))
 	return json.dumps({'status':'OK'})
 
 @app.route('/group2', methods=['POST'])
 def group2():
 	user_data=request.form
-	print(json.dumps(user_data))
+	chdir(jspath)
+	user_data = str( json.dumps(user_data))
+	system("node setWork.js " + user_data.replace(" ",""))
 	return json.dumps({'status':'OK'})
 
 @app.route('/fbsignup', methods=['POST'])
