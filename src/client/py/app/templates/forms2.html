@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+
+		  <div class="col-md-7">
+
+	  			<div class="row">
+	  				<div class="col-md-12">
+	  					<div class="content-box-large">
+	  						<div id="alert-g1" class="alert">Poll Added</div>
+	  						<div class="panel panel-default">
+			  				<div class="panel-heading">
+					            <h4>Work Instructions Issuance</h4>
+
+					        </div>
+			  				<div class="panel-body">
+
+			  					<form role="form" id="form-group2">
+									<fieldset>
+										<div class="form-group">
+											<label>Workscope Contact Details</label>
+											<input class="form-control" type="text" name="workscope_contract_details" required>
+										</div>
+										<div class="form-group">
+											<label>Revision</label>
+											<input class="form-control" type="text" name="revision" required>
+										</div>
+										<div class="form-group">
+											<label>Network Number</label>
+											<input class="form-control" type="number" name="network_number" required>
+										</div>
+										<div class="form-group">
+											<label>Activity</label>
+											<input class="form-control" type="text" name="activity" required>
+										</div>
+										<div class="form-group">
+											<label>Originator Name</label>
+											<input class="form-control" type="text" name="originator_name" required>
+										</div>
+										<div class="form-group">
+											<label>Date</label>
+											<input class="form-control" type="text" name="date" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<h3>Customer Information</h3>
+										<div class="form-group">
+											<label>Owner/ Operator</label>
+											<input class="form-control" type="text" name="owner_operator" required>
+										</div>
+										<div class="form-group">
+											<label>Aircraft Registration</label>
+											<input class="form-control" type="text" name="aircraft_registration" required>
+										</div>
+										<div class="form-group">
+											<label>Engine Type</label>
+											<input class="form-control" type="text" name="engine_type" required>
+										</div>
+										<div class="form-group">
+											<label>Engine Serial Number</label>
+											<input class="form-control" type="text" name="engine_serial_number" required>
+										</div>
+										<div class="form-group">
+											<label>On/Off Wing</label>
+											<select class="form-control" name="wing_toggle">
+												<option value="on">ON</option>
+												<option value="off">OFF</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Wing Position</label>
+											<input class="form-control" type="text" name="wing_position" required>
+										</div>
+										<div class="form-group">
+											<label>Task Location</label>
+											<input class="form-control" type="text" name="task_location" required>
+										</div>
+										<div class="form-group">
+											<label>Task Start</label>
+											<input class="form-control" type="text" name="task_start" required>
+										</div>
+										<div class="form-group">
+											<label>Task End</label>
+											<input class="form-control" type="text" name="task_end" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<h3>Workscope Contact Details</h3>
+										<div class="form-group">
+											<label>Name</label>
+											<input class="form-control" type="text" name="name" required>
+										</div>
+										<div class="form-group">
+											<label>Contact</label>
+											<input class="form-control" type="text" name="contact" required>
+										</div>
+										<h3>Workscope Task</h3>
+										<div class="form-group">
+											<label>Requested Task Description</label>
+											<input class="form-control" type="text" name="requested_task_description" required>
+										</div>
+										<div class="form-group">
+											<label>Technical Data Ref</label>
+											<input class="form-control" type="text" name="technical_data_reference" required>
+										</div>
+										<div class="form-group">
+											<label>SIA Task Reference</label>
+											<input class="form-control" type="text" name="sia_task_reference" required>
+										</div>
+										<div class="form-group">
+											<label>Additional Notes</label>
+											<input class="form-control" type="text" name="additional_notes" required>
+										</div>
+										<div class="form-group">
+											<label>Cost Rate Charge</label>
+											<input class="form-control" type="number" name="cost_rate_charge" required>
+										</div>
+										<div class="form-group">
+											<label>Cost Type</label>
+											<input class="form-control" type="number" name="cost_type" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Work Instruction Acceptance</label>
+											<input class="form-control" type="text" name="work_instruction_acceptance" required>
+										</div>
+										<div class="form-group">
+											<label>Invoicing Instructions</label>
+											<input class="form-control" type="text" name="invoicing_instructions" required>
+										</div>
+									</fieldset>
+									<div>
+											<center><button id="btn-group2" class="btn btn-primary" type="button">Issue Work Instruction</button></center>
+									</div>
+								</form>
+			  			</div>
+			  			</div>
+	  				</div>
+	  			</div>
+	  		<!--  Page content -->
+		  </div>
+	</div>
+
+{% endblock %}

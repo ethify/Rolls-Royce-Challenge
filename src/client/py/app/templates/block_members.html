@@ -1,0 +1,30 @@
+{% block group_members %}
+<div class="col-md-2">
+	<div class="row" style="display: block;">
+        <div class="content-box-large">
+        	<div class="panel panel-default">
+                <div class="panel-heading">
+                	<h5>Organisation Users</h5>
+                </div>
+                <div class="panel-body">
+                	{% for user in members %}
+                	<p>{{ user }}</p>
+                	{% endfor %}
+                </div>
+            </div>
+
+						<div class="panel panel-default">
+	                <div class="panel-heading">
+	                	<h5>Consortium Members</h5>
+	                </div>
+	                <div class="panel-body">
+	                	<p>Airline</p>
+										<p>Rolls Royce</p>
+										<p>SIAEC (SIA Engineering Company)</p>
+										<p>MRO</p>
+	                </div>
+	            </div>
+		</div>
+	</div>
+</div>
+{% endblock %}

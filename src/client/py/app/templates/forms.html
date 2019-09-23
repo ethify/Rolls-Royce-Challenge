@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% block content %}
+
+		  <div class="col-md-7">
+
+	  			<div class="row">
+	  				<div class="col-md-12">
+	  					<div class="content-box-large">
+	  						<div id="alert-g1" class="alert">Poll Added</div>
+	  						<div class="panel panel-default">
+			  				<div class="panel-heading">
+					            <h4>Work Request Input</h4>
+
+					        </div>
+			  				<div class="panel-body">
+
+			  					<form role="form" id="form-group">
+										<h3>Information</h3>
+									<fieldset>
+										<div class="form-group">
+											<label>Entry Id</label>
+											<input class="form-control" type="text" name="entry_id" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Requester Name</label>
+											<input class="form-control" type="text" name="requester_name" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Requestor Contact</label>
+											<input class="form-control" type="number" name="requester_contact" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Urgent Request?</label>
+											<input class="form-control" type="text" name="urgent" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Loation of Task</label>
+											<input class="form-control" type="text" name="location_task" required>
+										</div>
+									</fieldset>
+									<h3>Request</h3>
+									<fieldset>
+										<div class="form-group">
+											<label>Date Created</label>
+											<input class="form-control" type="text" name="date_created" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Work Request Reference No.</label>
+											<input class="form-control" type="text" name="work_request_reference_no" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>A/C Tail No</label>
+											<input class="form-control" type="text" name="ac_tail_no" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Engine Position No.</label>
+											<input class="form-control" type="text" name="position_no" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>ESN</label>
+											<input class="form-control" type="text" name="esn" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Subject of Request</label>
+											<select class="form-control" name="subject_of_request">
+												<option value="lru_replacement">Perform LRU replacement</option>
+											</select>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Summarized Task Description</label>
+											<textarea class="form-control" type="text" name="urgent" required></textarea>
+										</div>
+									</fieldset>
+									<h3>Actions</h3>
+									<fieldset>
+										<div class="form-group">
+											<label>Line Additions (Out-of-hours)</label>
+											<input class="form-control" type="number" name="line_additions" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Actions</label>
+											<input class="form-control" type="text" name="actions" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Materials Needed</label>
+											<input class="form-control" type="text" name="materials_needed" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Special Instructions</label>
+											<input class="form-control" type="text" name="special_instructions" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Hangar Additions</label>
+											<input class="form-control" type="text" name="hangar_additions" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Aircraft Check Name</label>
+											<input class="form-control" type="text" name="aircraft_chek_name" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Document Reference</label>
+											<input class="form-control" type="text" name="document_reference" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>E4 Notification No.</label>
+											<input class="form-control" type="text" name="e4_notification_no" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>EX/ EJ / E8 Notification No. (if any)</label>
+											<input class="form-control" type="text" name="ex_ej_e8">
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>For Component Changes</label>
+											<input class="form-control" type="text" name="component_changes" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>Equipment Number</label>
+											<input class="form-control" type="number" name="equpiment_number" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>P/N (on/off)</label>
+											<select class="form-control" name="pn_toggle">
+												<option value="on">ON</option>
+												<option value="off">OFF</option>
+											</select>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>P/N (if any)</label>
+											<input class="form-control" type="text" name="pn" required>
+										</div>
+									</fieldset>
+									<fieldset>
+										<div class="form-group">
+											<label>BFE Shortages:(indicate N/A if not engine change)</label>
+											<input class="form-control" type="text" name="urgent" required>
+										</div>
+									</fieldset>
+									<div>
+											<center><button id="btn-group1" class="btn btn-primary" type="button">Submit Work Request Input</button></center>
+									</div>
+								</form>
+			  			</div>
+			  			</div>
+	  				</div>
+	  			</div>
+	  		<!--  Page content -->
+		  </div>
+	</div>
+
+{% endblock %}

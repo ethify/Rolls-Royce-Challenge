@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+		  <div class="col-md-7">
+
+	  			<div class="row">
+									<center><h2>Admin Dashboard</h2></center><br>
+	  				<div class="col-md-6">
+	  					<div class="content-box-large">
+	  						<div id="alert-g1" class="alert">Ussr Added</div>
+	  						<div class="panel panel-default">
+			  				<div class="panel-heading">
+					            <h4>Register User</h4>
+					        </div>
+			  				<div class="panel-body">
+
+			  					<form role="form" id="form-group3">
+										<h3>User Details</h3>
+									<fieldset>
+										<div class="form-group">
+											<label>User Name</label>
+											<input class="form-control" type="text" name="name" required>
+										</div>
+									</fieldset>
+									<div>
+											<center><button id="btn-group3" class="btn btn-primary" type="button">Create User</button></center>
+									</div>
+								</form>
+			  			</div>
+			  			</div>
+	  				</div>
+	  			</div>
+					<div class="col-md-6">
+						<div class="content-box-large">
+							<div id="alert-g1" class="alert">Poll Added</div>
+							<div class="panel panel-default">
+							<div class="panel-heading">
+										<h4>Register Company</h4>
+								</div>
+							<div class="panel-body">
+
+								<form role="form" id="form-group">
+									<h3>Company Details</h3>
+								<fieldset>
+									<div class="form-group">
+										<label>Entry Id</label>
+										<input class="form-control" type="text" name="entry_id" required>
+									</div>
+								</fieldset>
+								<div>
+										<center><button id="btn-group1" class="btn btn-primary" type="button">Create Company</button></center>
+								</div>
+							</form>
+						</div>
+						</div>
+					</div>
+				</div>
+	  		<!--  Page content -->
+		  </div>
+	</div>
+
+{% endblock %}
