@@ -4,8 +4,7 @@ Create a Consortium Blockchain for Supply Chain and Logistics Management.
 
 ## Introduction - An Introduction of Trellis Labs
 
-Trellis Labs is a consortia to create broad collabration on blockchain projects with Industry actors.
-Our Team of experts works with you to develop blockchain solutions. From identifying the best use-case, assesing suitablity, developing proof of concepts, and bulding market ready solutions.
+Trellis Labs is a consortia to create broad collaboration on blockchain projects with Industry actors. Our team of experts works with you to develop blockchain solutions. From identifying the best use-case, assessing suitability, developing a proof of concepts, and building market-ready solutions.
 
 ## Challenge of choice - Explain the challenge of choice
 > Traceability and Transparency
@@ -22,7 +21,6 @@ This Solution is developed by keeping in mind the generic implementation and rep
   * Consortium Blockchain
   * Flexible Architecture
 
-* IPFS
 * Golang(ChainCode)
 * Nodejs
 * Flask
