@@ -11,7 +11,7 @@ const ccpPath = path.resolve(__dirname, '..', '..', 'first-network', 'connection
 
 async function main() {
     try {
-
+        //console.log(process.argv[3]);
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), 'wallet');
         const wallet = new FileSystemWallet(walletPath);
@@ -34,7 +34,6 @@ async function main() {
 
         // Get the contract from the network.
         const contract = network.getContract('contract');
-        var obj = { name: "John", age: 30, city: "New York" };
 
         // Submit the specified transaction.
         // createCar transaction - requires 5 argument, ex: ('createCar', 'CAR12', 'Honda', 'Accord', 'Black', 'Tom')

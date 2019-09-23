@@ -29,8 +29,12 @@ def wri_list():
 		count = int(count.decode())
 		for c in range(1, count+1):
 			a = subprocess.check_output(["node", "queryGetReq.js", session['wallet'], "req"+str(count)])
-			wri_list.append(a.decode())
-			print(wri_list)
+			c = a.decode()
+			d = {}
+			for q in c[1:-2].split(','):
+				w = q.split(":")
+				d[w[0]] = w[1]
+			wri_list.append(d)
 		return render_template('wri.html',all_polls=wri_list, prev_polls={})
 	return redirect(url_for('signin'))
 
@@ -44,8 +48,13 @@ def wi_list():
 		count = int(count.decode())
 		for c in range(1, count+1):
 			a = subprocess.check_output(["node", "queryGetWork.js", session['wallet'], "work"+str(count)])
-			wri_list.append(a.decode())
-			print(wri_list)
+			l = a.decode()
+			print(l)
+			d = {}
+			for q in l[1:-2].split(','):
+				w = q.split(":")
+				d[w[0]] = w[1]
+			wri_list.append(d)
 		return render_template('wi.html',all_polls=wri_list, prev_polls={})
 	return redirect(url_for('signin'))
 

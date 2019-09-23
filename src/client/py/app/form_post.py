@@ -12,6 +12,7 @@ def group1():
 	user_data=request.form
 	chdir(jspath)
 	user_data = str( json.dumps(user_data))
+	print(user_data)
 	system("node setRequest.js " + session['wallet'] + " " + user_data.replace(" ",""))
 	return json.dumps({'status':'OK'})
 
