@@ -17,7 +17,7 @@ def members():
 
 @app.route('/index')
 def index():
-	return "Index"
+	return redirect('signin')
 
 @app.route('/wri-list')
 def wri_list():

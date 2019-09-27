@@ -8,19 +8,20 @@ jspath = abspath(join(dirname( __file__ ), '..', '..','javascript'))
 
 @app.route('/group1', methods=['POST'])
 def group1():
-	user_data=request.form
-	chdir(jspath)
-	user_data = str( json.dumps(user_data))
-	print(user_data)
-	system("node setRequest.js " + session['wallet'] + " " + user_data.replace(" ",""))
-	return json.dumps({'status':'OK'})
+        user_data=request.form
+        chdir(jspath)
+        user_data = str(json.dumps(user_data))
+        print(user_data)
+        print(session['wallet'])
+        system("node setRequest.js " + session['wallet'].strip() + " " + user_data.replace(" ",""))
+        return json.dumps({'status':'OK'})
 
 @app.route('/group2', methods=['POST'])
 def group2():
 	user_data=request.form
 	chdir(jspath)
 	user_data = str( json.dumps(user_data))
-	system("node setWork.js " + session['wallet'] + " " + user_data.replace(" ",""))
+	system("node setWork.js " + session['wallet'].strip() + " " + user_data.replace(" ",""))
 	return json.dumps({'status':'OK'})
 
 @app.route('/fbsignup', methods=['POST'])
@@ -46,7 +47,7 @@ def login():
 		return render_template('login.html',error_msg=error_msg)
 	if session['wallet'] == 'admin':
 		return redirect(url_for('admin'))
-	return redirect(url_for('index'))
+	return redirect(url_for('forms'))
 
 @app.route('/vote', methods=['POST'])
 def vote():
